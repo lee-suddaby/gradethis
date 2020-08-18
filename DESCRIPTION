@@ -1,4 +1,4 @@
-Package: gradethis
+Package: gradethislee
 Type: Package
 Title: Tools for "grading" student exercises in learnr tutorials
 Version: 0.1.0.9004
