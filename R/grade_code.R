@@ -147,6 +147,13 @@ is_code_identical <- function(user = NULL, solution = NULL) {
   if (is.null(user)) {
     stop("I didn't receive your code. Did you write any?")
   }
+  
+  # Many tutorial authors use learnr and gradethis for creating "fill in the blanks exercises".
+  # This checks that the students has not left and blanks (3 underscores) in their solution
+  # This is ignored if the solution code contains blanks.
+  if (grepl("___", user) && !grepl("___", solution)) {
+    stop("Your code still contains blanks. Please replace all blanks with valid code.")
+  }
 
   # user and solution are expressions with `srcref`s. Must compare each element. Can not compare as a whole unit
   if (!identical(class(user), class(solution))) {
